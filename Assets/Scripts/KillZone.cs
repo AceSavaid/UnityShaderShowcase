@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class KillZone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //[SerializeField] string name = "";
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.layer == 3)
+        {
+            other.gameObject.GetComponent<Player>().Die();
+            
+        }
     }
 }

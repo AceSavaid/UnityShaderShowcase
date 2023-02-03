@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2916878246461540963}
   - component: {fileID: 2916878246461540960}
   - component: {fileID: 2916878246461540961}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,11 +128,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797fefd39eda8b643b227a75e72e90a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 20
   currentHealth: 0
-  jumpHeight: 0
-  currentWeapon: {fileID: 0}
+  invincibilityTime: 0.5
+  jumpHeight: 4
+  currentWeapon: {fileID: 11400000, guid: 7b82e6ffed6bee1448c3014257872ca6, type: 2}
   healthbar: {fileID: 0}
   PauseMenu: {fileID: 0}
   clearScreen: {fileID: 0}
   deathScreen: {fileID: 0}
+  HealOverlay: {fileID: 0}
+  HurtOverlay: {fileID: 0}

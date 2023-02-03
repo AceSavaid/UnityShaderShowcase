@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Hazard : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //[SerializeField] string name = "name";
+    [SerializeField] float damage = 1.0f;
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        collision.gameObject.GetComponent<Player>().HurtPlayer(damage);
     }
 }

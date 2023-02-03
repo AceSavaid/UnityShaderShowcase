@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+[CreateAssetMenu(menuName = "Weapon", fileName = "Weapon", order = 2)]
+public class Weapon : ScriptableObject
 {
     public GameObject projectile;
     public float bulletSpeed = 5.0f;
