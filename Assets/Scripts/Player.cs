@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.InputSystem;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
     Rigidbody rb;
-    //PlayerControls controls;
+    PlayerAct controls;
 
 
     [Header("Player Stats")]
@@ -32,21 +32,21 @@ public class Player : MonoBehaviour
 
 
     [Header("Sound")]
-    AudioClip jumpSound;
-    AudioClip hurtSound;
-    AudioClip healSound;
-    AudioClip dieSound;
-    AudioClip shootSound;
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip hurtSound;
+    [SerializeField] AudioClip healSound;
+    [SerializeField] AudioClip dieSound;
+    [SerializeField] AudioClip shootSound;
 
     Vector2 mouseDirection;
     Vector2 moveDirection;
 
     bool isGrounded = true;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        controls = new PlayerAct();
 
 
         //healthbar setUp
@@ -55,6 +55,19 @@ public class Player : MonoBehaviour
         healthbar.value = currentHealth;
     }
 
+
+    private void OnEnable()
+    {
+        controls.Enable();
+
+        controls.Player.Fire.performed += ctx => Shoot();
+
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
