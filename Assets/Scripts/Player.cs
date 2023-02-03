@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] Slider healthbar;
     [SerializeField] GameObject PauseMenu;
-    [SerializeField] GameObject clearScreen;
+    [SerializeField] GameObject winScreen;
     [SerializeField] GameObject deathScreen;
     [SerializeField] GameObject HealOverlay;
     [SerializeField] GameObject HurtOverlay;
