@@ -29,7 +29,7 @@ public partial class @PlayerAct : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""b3371bfa-846d-4e52-affd-9c8b3be27caa"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -38,7 +38,7 @@ public partial class @PlayerAct : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Look"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""c1578a3d-1949-434d-b3b3-a3d35c410cf9"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
