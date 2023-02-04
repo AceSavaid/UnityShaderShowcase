@@ -59,8 +59,14 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         controls.Enable();
-
+        controls.Player.Move.performed += ctx =>
+        {
+            Vector2 v = ctx.ReadValue<Vector2>();
+            moveDirection.x = v.y;
+            moveDirection.y = v.x;
+        };
         controls.Player.Fire.performed += ctx => Shoot();
+        controls.Player.Jump.performed += ctx => Jump();
 
     }
 
@@ -152,6 +158,11 @@ public class Player : MonoBehaviour
         
     }
 
+    public void ChangeWeapon(Weapon w)
+    {
+        currentWeapon = w;
+    }
+
     void UpdateUI()
     {
         healthbar.value = currentHealth;
@@ -161,7 +172,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == 3)
         {
-            isGrounded = false;
+            isGrounded = true;
         }
     }
 

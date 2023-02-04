@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class WeaponChangeObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Weapon weapon;
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.gameObject.layer == 3)
+        {
+            if (weapon)
+            {
+                other.gameObject.GetComponent<Player>().ChangeWeapon(weapon);
+            }
+            else
+            {
+                Debug.LogWarning("No weapon in Weapon Change Orb");
+            }
+            
+        }
     }
 }
