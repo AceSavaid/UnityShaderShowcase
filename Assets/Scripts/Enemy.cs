@@ -10,10 +10,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] float damage = 2.0f;
     [SerializeField] float speed = 4.0f;
     [SerializeField] Slider healthbar;
+
+    Transform playerLoc;
+    bool followPlayer = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -21,5 +24,26 @@ public class Enemy : MonoBehaviour
     {
         
     }
+    
+    void Movement()
+    {
 
+    }
+
+    public void HurtEnemy(float val)
+    {
+        currentHealth -= val;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Destroy(this.gameObject);
+    }
+    public float GetDamage()
+    {
+        return damage;
+    }
 }

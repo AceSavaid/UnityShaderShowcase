@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88eaccaa620cb2e40b7a06ba8fe6429d, type: 3}
   m_Name: BaseWeapon
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  bulletSpeed: 5
+  projectile: {fileID: 6064552942968857912, guid: b321332576d2dc04b9b1e34fe9f329cc, type: 3}
+  bulletSpeed: 10
   bulletDamage: 2
   ReloadTime: 1.5

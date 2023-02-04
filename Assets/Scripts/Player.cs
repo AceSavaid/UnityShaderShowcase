@@ -10,6 +10,12 @@ public class Player : MonoBehaviour
     Rigidbody rb;
     PlayerAct controls;
 
+    [SerializeField] private Transform head;
+    [SerializeField, Range(0,89.9f)] private float viewLockY;
+    private Vector2 intendedDirection;
+    private Vector2 mouseDir;
+    public float mouseSensitivity;
+
 
     [Header("Player Stats")]
     [SerializeField] float maxHealth = 20;
@@ -17,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] float invincibilityTime;
     bool hurt = false;
     float invincibilityTimer = 0.0f;
+    [SerializeField] float speed = 4;
     [SerializeField] float jumpHeight = 4;
     [SerializeField] Weapon currentWeapon;
     bool canshoot = true;
@@ -46,8 +53,22 @@ public class Player : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        controls = new PlayerAct();
 
+        controls = new PlayerAct();
+        controls.Enable();
+        controls.Player.Look.performed += ctx => mouseDir = ctx.ReadValue<Vector2>();
+        controls.Player.Move.performed += ctx =>
+        {
+            Vector2 v = ctx.ReadValue<Vector2>();
+            moveDirection.x = v.y;
+            moveDirection.y = v.x;
+        };
+       //controls.Player.Fire.performed += ctx => Shoot();
+        controls.Player.Jump.performed += ctx => Jump();
+
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         //healthbar setUp
         currentHealth = maxHealth;
@@ -58,15 +79,7 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Enable();
-        controls.Player.Move.performed += ctx =>
-        {
-            Vector2 v = ctx.ReadValue<Vector2>();
-            moveDirection.x = v.y;
-            moveDirection.y = v.x;
-        };
-        controls.Player.Fire.performed += ctx => Shoot();
-        controls.Player.Jump.performed += ctx => Jump();
+        
 
     }
 
@@ -77,6 +90,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movement();
+        RotateCamera(); 
+
         if (hurt)
         {
             invincibilityTimer += Time.deltaTime;
@@ -96,6 +112,8 @@ public class Player : MonoBehaviour
                 shootTimer = 0.0f;
             }
         }
+
+        intendedDirection = mouseDir;
         UpdateUI();
 
 
@@ -127,6 +145,9 @@ public class Player : MonoBehaviour
         
         //turn on DeathScreenUI
         deathScreen.gameObject.SetActive(true);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
 
@@ -134,19 +155,19 @@ public class Player : MonoBehaviour
         if (canshoot)
         {
             //instantiate bullet from current weapon and projects it forward
-            GameObject b = Instantiate(currentWeapon.projectile);
+            GameObject b = Instantiate(currentWeapon.projectile, transform);
+            b.transform.parent = null;
             b.GetComponent<Rigidbody>().AddForce(Vector3.forward * currentWeapon.bulletSpeed);
-
+            Destroy(b, 5);
             canshoot = false;
         }
         
-
     }
 
     protected void Movement()
     {
-
-       
+        rb.AddForce(speed * moveDirection.x * transform.forward, ForceMode.Force);
+        rb.AddForce(speed * moveDirection.y * transform.right, ForceMode.Force);
     }
 
     void Jump()
@@ -168,9 +189,42 @@ public class Player : MonoBehaviour
         healthbar.value = currentHealth;
     }
 
+    public void WinLevel()
+    {
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        winScreen.SetActive(true);
+    }
+
+    private void RotateCamera()
+    {
+
+        transform.rotation *= Quaternion.AngleAxis(intendedDirection.x * mouseSensitivity * Time.deltaTime, Vector3.up);
+        head.rotation *= Quaternion.AngleAxis(intendedDirection.y * mouseSensitivity * Time.deltaTime, Vector3.right);
+
+        Vector3 angles = Vector3.zero;
+
+        angles.x = head.localEulerAngles.x;
+
+        if (angles.x > 180 && angles.x < 360 - viewLockY)
+        {
+            angles.x = 360 - viewLockY;
+        }
+        else if (angles.x < 180 && angles.x > viewLockY)
+        {
+            angles.x = viewLockY;
+            angles.x = viewLockY;
+        }
+
+
+        head.localEulerAngles = angles;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 3)
+        if (collision.gameObject.layer == 6)
         {
             isGrounded = true;
         }
@@ -178,7 +232,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer == 3)
+        if (collision.gameObject.layer == 6)
         {
             isGrounded = false;
         }
