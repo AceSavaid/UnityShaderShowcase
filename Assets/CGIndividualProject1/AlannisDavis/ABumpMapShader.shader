@@ -1,4 +1,4 @@
-Shader "Custom/ABumpMapShader"
+Shader "Alannis/ABumpMapShader"
 {
     Properties {
         _myDiffuse ("Diffuse Texture", 2D) = "white" {}

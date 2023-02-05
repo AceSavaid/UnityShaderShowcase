@@ -1,4 +1,4 @@
-Shader "Custom/AToonShader"
+Shader "Alannis/AToonShader"
 {
     Properties
     {

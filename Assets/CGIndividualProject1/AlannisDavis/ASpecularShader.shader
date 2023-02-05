@@ -1,4 +1,4 @@
-Shader "Custom/ASpecularShader"
+Shader "Alannis/ASpecularShader"
 {
     Properties
     {
