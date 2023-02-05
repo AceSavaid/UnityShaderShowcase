@@ -45,7 +45,6 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip dieSound;
     [SerializeField] AudioClip shootSound;
 
-    Vector2 mouseDirection;
     Vector2 moveDirection;
 
     bool isGrounded = true;
@@ -202,7 +201,7 @@ public class Player : MonoBehaviour
     {
 
         transform.rotation *= Quaternion.AngleAxis(intendedDirection.x * mouseSensitivity * Time.deltaTime, Vector3.up);
-        head.rotation *= Quaternion.AngleAxis(intendedDirection.y * mouseSensitivity * Time.deltaTime, Vector3.right);
+        head.rotation *= Quaternion.AngleAxis(-intendedDirection.y * mouseSensitivity * Time.deltaTime, Vector3.right);
 
         Vector3 angles = Vector3.zero;
 

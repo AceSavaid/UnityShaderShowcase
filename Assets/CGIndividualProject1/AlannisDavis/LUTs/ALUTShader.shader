@@ -1,53 +1,59 @@
-Shader "Custom/ALUTShader"
+Shader "Alannis/ALUTShader"
 {
-    Properties
-    {
-        _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
+   Properties
+    { 
+        _MainTex ("Texture", 2D) = "white" {}
+        _LUT("LUT", 2D) = "white" {}
+        _Contribution("Contribution", Range(0, 1)) = 1
     }
     SubShader
-    {
-        Tags { "RenderType"="Opaque" }
-        LOD 200
-
-        CGPROGRAM
-        // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows
-
-        // Use shader model 3.0 target, to get nicer looking lighting
-        #pragma target 3.0
-
-        sampler2D _MainTex;
-
-        struct Input
-        {
-            float2 uv_MainTex;
+    { 
+        // No culling or depth
+        Cull Off ZWrite Off ZTest Always
+        Pass
+        { 
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
+            #define COLORS 32.0
+            struct appdata
+            { 
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
+        struct v2f
+        { 
+            float2 uv : TEXCOORD0;
+            float4 vertex : SV_POSITION;
         };
 
-        half _Glossiness;
-        half _Metallic;
-        fixed4 _Color;
-
-        // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-        // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-        // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_BUFFER_START(Props)
-            // put more per-instance properties here
-        UNITY_INSTANCING_BUFFER_END(Props)
-
-        void surf (Input IN, inout SurfaceOutputStandard o)
+        v2f vert (appdata v)
         {
-            // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
-            // Metallic and smoothness come from slider variables
-            o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness;
-            o.Alpha = c.a;
+            v2f o;
+            o.vertex = UnityObjectToClipPos(v.vertex);
+            o.uv = v.uv;
+            return o;
         }
-        ENDCG
+        sampler2D _MainTex;
+        sampler2D _LUT;
+        float4 _LUT_TexelSize;
+        float _Contribution;
+        fixed4 frag (v2f i) : SV_Target
+        {
+            float maxColor = COLORS - 1.0;
+            fixed4 col = saturate(tex2D(_MainTex, i.uv));
+            float halfColX = 0.5 / _LUT_TexelSize.z;
+            float halfColY = 0.5 / _LUT_TexelSize.w;
+            float threshold = maxColor / COLORS;
+            float xOffset = halfColX + col.r * threshold / COLORS;
+            float yOffset = halfColY + col.g * threshold;
+            float cell = floor(col.b * maxColor);
+            float2 lutPos = float2(cell / COLORS + xOffset, yOffset);
+            float4 gradedCol = tex2D(_LUT, lutPos);
+            return lerp(col, gradedCol, _Contribution);
+        }
+        ENDCG 
+        }
     }
-    FallBack "Diffuse"
 }
