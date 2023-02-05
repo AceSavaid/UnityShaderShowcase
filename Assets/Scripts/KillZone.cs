@@ -14,4 +14,12 @@ public class KillZone : MonoBehaviour
             
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            collision.gameObject.GetComponent<Player>().Die();
+        }
+    }
 }
