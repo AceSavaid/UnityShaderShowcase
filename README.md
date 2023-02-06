@@ -29,5 +29,7 @@ Link to Slides:  https://docs.google.com/presentation/d/1awsoW2XGMIp2MkMkAQZ2CAZ
 
 Demo Video:  https://youtu.be/ZWYCuUv2rcc
 
-### Explaination & Documentation  
+### Explaination & Documentation 
+
+**Third Party Plugins Used:** Cinemachine & New Input System 
 
