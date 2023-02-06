@@ -1,4 +1,4 @@
-Shader "Custom/CDiffuse"
+Shader "Carlos/Emission"
 {
     Properties
     {
@@ -43,6 +43,7 @@ Shader "Custom/CDiffuse"
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
+            o.Emission
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
