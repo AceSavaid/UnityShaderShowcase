@@ -7,8 +7,9 @@ Project Manager + Gameplay Programmer
 
 
 Link to Slides:  https://docs.google.com/presentation/d/1OFhTw9AdopR1gQyJs2cxFFqDmimmFOSGA32SsXMZ3lc/edit?usp=sharing  
-Demo Video:  
+Demo Video:  https://youtu.be/ZYAwaEgcMEQ
 ### Explaination & Documentation  
+Worked on scripts for a base of the project as they were already started on in the project and it didnt make sense to redo them 
 
 
 ## Bradley Cameron 
@@ -17,8 +18,9 @@ Enemy and Level Designer
 
 
 Link to Slides:  
-Demo Video:  
+Demo Video:  https://drive.google.com/file/d/1INVHxMU0O_wMb6BsLeTVq8Fezb1EG5mp/view?usp=share_link
 ### Explaination & Documentation  
+Some scripts like the base player and genral kill scrips were made as a group as a base and then edited in the scenes as the project was in progression and it would not be optimala to recode the same scripts and mechanics for the project multiple times over. 
 
 ## Carlos Lu
 Sound Designer  
