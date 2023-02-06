@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Experimental.AI;
@@ -17,6 +18,10 @@ public class CJetPlayer : MonoBehaviour
     [SerializeField] private float _shootCoolDown;
     [SerializeField] private Transform _gunPos;
     [SerializeField] private Rigidbody _bullet;
+    [SerializeField] private Camera _camera;
+
+    [Header("UI")] 
+    [SerializeField] private TextMeshProUGUI _fuelText;
 
     private bool isShooting;
     private float _currentFuel;
@@ -48,7 +53,8 @@ public class CJetPlayer : MonoBehaviour
 
         _control.KeyboardMouse.Movement.canceled += ctx =>_fuelLossMultiplier = 0.25f;
 
-        _control.KeyboardMouse.Shoot.performed += ctx => isShooting = ctx.ReadValue<bool>();
+        _control.KeyboardMouse.Shoot.performed += ctx => isShooting = true;
+        _control.KeyboardMouse.Shoot.canceled += ctx => isShooting = false;
 
         #endregion
     }
@@ -69,20 +75,21 @@ public class CJetPlayer : MonoBehaviour
     {
         Move();
         CheckShoot();
+        UpdateFuel();
     }
 
     void Move()
     {
         _rb.AddForce(new Vector3(_movementDir.x * _speed, 0 , _movementDir.y * _speed), ForceMode.Force);
 
-        if (_rb.velocity.x >= 120.0f)
+        if (_rb.velocity.x >= 240.0f)
         {
-            _rb.velocity = new Vector3(10.0f, 0.0f, _rb.velocity.z);
+            _rb.velocity = new Vector3(240.0f, 0.0f, _rb.velocity.z);
         }
         
-        if (_rb.velocity.z >= 120.0f)
+        if (_rb.velocity.z >= 240.0f)
         {
-            _rb.velocity = new Vector3(_rb.velocity.x, 0.0f, 10.0f);
+            _rb.velocity = new Vector3(_rb.velocity.x, 0.0f, 240.0f);
         }
     }
 
@@ -100,5 +107,12 @@ public class CJetPlayer : MonoBehaviour
         {
             _shootTemp += Time.deltaTime;
         }
+    }
+
+    void UpdateFuel()
+    {
+        _fuelText.text = "Fuel: " + (int)_currentFuel;
+
+        _currentFuel -= Time.deltaTime * _fuelLossMultiplier * 2.0f;
     }
 }
