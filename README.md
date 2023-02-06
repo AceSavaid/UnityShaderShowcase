@@ -23,9 +23,9 @@ Demo Video:
 ## Carlos Lu
 Sound Designer  
 - Creates the sound effects and soundtrack of the game, also assisting with vfx when needed.  
+- Has a mini project along side the main game for additional content.
 
-
-Link to Slides:  
+Link to Slides:  https://docs.google.com/presentation/d/1awsoW2XGMIp2MkMkAQZ2CAZEJfHon6Xx0WO9VoaPU-U/edit?usp=sharing
 Demo Video:  
 ### Explaination & Documentation  
 
