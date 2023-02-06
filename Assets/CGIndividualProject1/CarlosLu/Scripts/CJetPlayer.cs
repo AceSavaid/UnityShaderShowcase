@@ -12,12 +12,15 @@ public class CJetPlayer : MonoBehaviour
 
     [Header("Jet Attributes")] 
     [SerializeField] private float _speed;
+    [SerializeField] private float _maxFuel;
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private float _shootCoolDown;
     [SerializeField] private Transform _gunPos;
     [SerializeField] private Rigidbody _bullet;
 
     private bool isShooting;
+    private float _currentFuel;
+    private float _fuelLossMultiplier;
 
     private Vector2 _movementDir;
     
@@ -26,6 +29,7 @@ public class CJetPlayer : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _currentFuel = _maxFuel;
         
         #region HandleControls
 
@@ -38,7 +42,11 @@ public class CJetPlayer : MonoBehaviour
 
             _movementDir.x = v.x;
             _movementDir.y = v.y;
+
+            _fuelLossMultiplier = 0.87f;
         };
+
+        _control.KeyboardMouse.Movement.canceled += ctx =>_fuelLossMultiplier = 0.25f;
 
         _control.KeyboardMouse.Shoot.performed += ctx => isShooting = ctx.ReadValue<bool>();
 

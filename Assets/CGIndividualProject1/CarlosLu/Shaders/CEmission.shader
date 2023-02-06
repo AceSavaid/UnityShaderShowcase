@@ -5,6 +5,7 @@ Shader "Carlos/Emission"
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
+        _Emission ("Emission", Range(0,1)) = 0.0
         _Metallic ("Metallic", Range(0,1)) = 0.0
     }
     SubShader
@@ -28,6 +29,7 @@ Shader "Carlos/Emission"
 
         half _Glossiness;
         half _Metallic;
+        half _Emission;
         fixed4 _Color;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
@@ -40,10 +42,10 @@ Shader "Carlos/Emission"
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
-            o.Emission
+            o.Emission = _Color * _Emission;
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
