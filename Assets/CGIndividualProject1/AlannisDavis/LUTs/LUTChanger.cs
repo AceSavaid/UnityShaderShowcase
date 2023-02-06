@@ -28,5 +28,9 @@ public class LUTChanger : MonoBehaviour
         {
             camerasettings.LUTMaterial = luts[2];
         }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            camerasettings.LUTMaterial = luts[3];
+        }
     }
 }
