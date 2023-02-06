@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ACubeMapMaterial
-  m_Shader: {fileID: 4800000, guid: 4dd40c8b504db7646bd116ea704de63d, type: 3}
+  m_Name: Ground AToonMaterial 1
+  m_Shader: {fileID: 4800000, guid: b84014ec92ab45847a97ac689bbda223, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -56,17 +56,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _myCube:
-        m_Texture: {fileID: 8900000, guid: ff631016c241cdb41bbe57c3008673d5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _myTex:
-        m_Texture: {fileID: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: a21feed14fee8b64a808bcfb3cd7b377, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
+    - _Contribution: 0.5
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -82,11 +79,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _myFloat: 0.5
-    - _myRange: 0.43
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.1198291, g: 0.33962262, b: 0.22046565, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _myColor: {r: 0.46226418, g: 0.18054467, b: 0.18054467, a: 1}
-    - _myVector: {r: 0.5, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
