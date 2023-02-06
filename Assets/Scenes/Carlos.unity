@@ -13536,7 +13536,8 @@ GameObject:
   - component: {fileID: 1665493958}
   - component: {fileID: 1665493957}
   - component: {fileID: 1665493959}
-  - component: {fileID: 1665493960}
+  - component: {fileID: 1665493961}
+  - component: {fileID: 1665493962}
   m_Layer: 0
   m_Name: MainCam
   m_TagString: MainCamera
@@ -13644,7 +13645,7 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1665493960
+--- !u!114 &1665493961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13653,11 +13654,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1665493955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 890df5086c944ce46a9c47984ed079ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c25bf050e7ffb04bb68c48209593fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  awesomeShader: {fileID: 4800000, guid: 52afc749ef3f7754e8f8327fad00c100, type: 3}
-  m_renderMaterial: {fileID: 2100000, guid: d0e0849f73c404442b0e981d511f09ff, type: 2}
+  luts:
+  - {fileID: 2100000, guid: d0e0849f73c404442b0e981d511f09ff, type: 2}
+  - {fileID: 2100000, guid: 3a5f37e55f3c2e24cba4e24ee4723e6a, type: 2}
+--- !u!114 &1665493962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665493955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04f997c9c94da7d49b4c9392afed5c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LUTMaterial: {fileID: 0}
 --- !u!1 &1690628347
 GameObject:
   m_ObjectHideFlags: 0
