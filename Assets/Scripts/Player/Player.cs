@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
@@ -29,6 +30,10 @@ public class Player : MonoBehaviour
     bool canshoot = true;
     float shootTimer = 0.0f;
 
+    [Header("Player Elements")]
+    [SerializeField] GameObject forcefield;
+    
+
     [Header("UI Elements")]
     [SerializeField] Slider healthbar;
     [SerializeField] GameObject PauseMenu;
@@ -36,6 +41,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject deathScreen;
     [SerializeField] GameObject HealOverlay;
     [SerializeField] GameObject HurtOverlay;
+    [SerializeField] GameObject textBox;
+    [SerializeField] TMP_Text textBoxText;
 
 
     [Header("Sound")]
@@ -44,7 +51,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip healSound;
     [SerializeField] AudioClip dieSound;
     [SerializeField] AudioClip shootSound;
-
+    [SerializeField] AudioClip forcefieldSound;
     Vector2 moveDirection;
 
     bool isGrounded = true;
@@ -178,6 +185,11 @@ public class Player : MonoBehaviour
         
     }
 
+    void ToggleForceField(bool toggle)
+    {
+        forcefield.SetActive(toggle);
+    }
+
     public void ChangeWeapon(Weapon w)
     {
         currentWeapon = w;
@@ -219,6 +231,17 @@ public class Player : MonoBehaviour
 
 
         head.localEulerAngles = angles;
+    }
+
+    public void ShowTextBox(string text)
+    {
+        textBoxText.text = text;
+        textBox.SetActive(true);
+    }
+    
+    public void HideTextBox()
+    {
+        textBox.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
