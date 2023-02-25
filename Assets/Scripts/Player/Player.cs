@@ -51,10 +51,21 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip healSound;
     [SerializeField] AudioClip dieSound;
     [SerializeField] AudioClip shootSound;
+    [SerializeField] AudioClip weaponChangeSound;
     [SerializeField] AudioClip forcefieldSound;
+
+    [Header("ParticleEffects")]
+    [SerializeField] ParticleSystem jumpParticles;
+    [SerializeField] ParticleSystem landParticles;
+    [SerializeField] ParticleSystem hurtParticles;
+    [SerializeField] ParticleSystem deathParticles;
+
+    [Header("Other")]
+
     Vector2 moveDirection;
 
     bool isGrounded = true;
+    bool isPaused = false;
 
     void Awake()
     {
@@ -69,8 +80,9 @@ public class Player : MonoBehaviour
             moveDirection.x = v.y;
             moveDirection.y = v.x;
         };
-       //controls.Player.Fire.performed += ctx => Shoot();
+       controls.Player.Fire.performed += ctx => Shoot();
         controls.Player.Jump.performed += ctx => Jump();
+        controls.Player.Pause.performed += ctx => PauseGame();
 
 
         Cursor.visible = false;
@@ -85,8 +97,8 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        
 
+        controls.Enable();
     }
 
     private void OnDisable()
@@ -130,6 +142,8 @@ public class Player : MonoBehaviour
         if (!hurt)
         {
             currentHealth -= val;
+            PlayVisualEffect(hurtParticles);
+
             if (currentHealth <= 0)
             {
                 Die();
@@ -172,14 +186,16 @@ public class Player : MonoBehaviour
 
     protected void Movement()
     {
-        rb.AddForce(speed * moveDirection.x * transform.forward, ForceMode.Force);
-        rb.AddForce(speed * moveDirection.y * transform.right, ForceMode.Force);
+        rb.AddForce(speed * moveDirection.x * transform.forward, ForceMode.Acceleration);
+        rb.AddForce(speed * moveDirection.y * transform.right, ForceMode.Acceleration);
+        //rb.position += new Vector3(moveDirection.y, 0, moveDirection.x)* speed * Time.deltaTime;
     }
 
     void Jump()
     {
         if (isGrounded)
         {
+            PlaySoundEffect(jumpSound);
             rb.AddForce(jumpHeight * Vector3.up, ForceMode.Impulse);
         }
         
@@ -187,6 +203,7 @@ public class Player : MonoBehaviour
 
     void ToggleForceField(bool toggle)
     {
+        PlaySoundEffect(forcefieldSound);
         forcefield.SetActive(toggle);
     }
 
@@ -232,6 +249,25 @@ public class Player : MonoBehaviour
 
         head.localEulerAngles = angles;
     }
+    
+    public void PauseGame()
+    {
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            PauseMenu.SetActive(true);
+            Time.timeScale = 0;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            PauseMenu.SetActive(false);
+            Time.timeScale = 1;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
 
     public void ShowTextBox(string text)
     {
@@ -244,11 +280,28 @@ public class Player : MonoBehaviour
         textBox.SetActive(false);
     }
 
+    private void PlaySoundEffect(AudioClip sound)
+    {
+        if (sound)
+        {
+            AudioSource.PlayClipAtPoint(sound, this.transform.position);
+        }
+    }
+
+    private void PlayVisualEffect(ParticleSystem particle)
+    {
+        if (particle)
+        {
+            particle.Play();
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 6)
         {
             isGrounded = true;
+
         }
     }
 
