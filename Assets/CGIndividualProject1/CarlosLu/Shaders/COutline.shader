@@ -3,6 +3,8 @@ Shader "Hidden/COutline"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Thickness ("Thickness", Range(1,0)) = 0
+        
     }
     SubShader
     {
