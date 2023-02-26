@@ -7,7 +7,7 @@ using System;
 public class BCBloom : MonoBehaviour
 {
     // Start is called before the first frame update
-    const int BoxDownPass = 1;
+    const int BoxDownPass = 0;
     const int BoxUpPass = 1;
     const int ApplyBloomPass = 2;
 

@@ -3,21 +3,21 @@ Shader "Custom/BCBloomShader" {
     _MainTex("Texture", 2D) = "white" {}
     }
     CGINCLUDE
-        #include "UnityCG.cginc"
+    #include "UnityCG.cginc"
 
-        sampler2D _MainTex, _SourceTex;
-        float4 _MainTex_TexelSize;
+    sampler2D _MainTex, _SourceTex;
+    float4 _MainTex_TexelSize;
 
-        half _threshold;
+    half _threshold;
 
-        struct VertexData {
-            float4 vertex : POSITION;
-            float2 uv : TEXCOORD0;
-        };
-        struct Interpolators {
-            float4 pos : SV_POSITION;
-            float2 uv : TEXCOORD0;
-        };
+    struct VertexData {
+        float4 vertex : POSITION;
+        float2 uv : TEXCOORD0;
+    };
+    struct Interpolators {
+        float4 pos : SV_POSITION;
+        float2 uv : TEXCOORD0;
+    };
     Interpolators VertexProgram(VertexData v) {
         Interpolators i;
         i.pos = UnityObjectToClipPos(v.vertex);
@@ -36,20 +36,21 @@ Shader "Custom/BCBloomShader" {
         return s * 0.25f;
     }
     ENDCG
-        SubShader{
-            Cull Off
-            ZTest Always
-            ZWrite Off
-            Pass {
-                CGPROGRAM
-                    #pragma vertex VertexProgram
-                    #pragma fragment FragmentProgram
-                half4 FragmentProgram(Interpolators i) : SV_Target{
-                //return tex2D(_MainTex, i.uv) * half4(1,0,0,0);
-                return half4(SampleBox(i.uv,1),1);
-                }
+    SubShader{
+        Cull Off
+        ZTest Always
+        ZWrite Off
+        Pass {
+            CGPROGRAM
+                #pragma vertex VertexProgram
+                #pragma fragment FragmentProgram
+            half4 FragmentProgram(Interpolators i) : SV_Target{
+            //return tex2D(_MainTex, i.uv) * half4(1,0,0,0);
+            return half4(SampleBox(i.uv,1),1);
+            }
             ENDCG
         }
+
         Pass {
             Blend One One
             CGPROGRAM
@@ -61,16 +62,17 @@ Shader "Custom/BCBloomShader" {
                 }
             ENDCG
         }
+
         Pass {
             CGPROGRAM
-                #pragma vertex VertexProgram
-                #pragma fragment FragmentProgram
+            #pragma vertex VertexProgram
+            #pragma fragment FragmentProgram
             half4 FragmentProgram(Interpolators i) : SV_Target{
-                    half4 c = tex2D(_SourceTex, i.uv);
-                    c.rgb += SampleBox(i.uv, 0.5);
-                    return half4(SampleBox(i.uv,0.5),1);
-                    }
-                    ENDCG
-            }
+                half4 c = tex2D(_SourceTex, i.uv);
+                c.rgb += SampleBox(i.uv, 0.5);
+                return half4(SampleBox(i.uv,0.5),1);
+                }
+            ENDCG
+        }
     }
 }
