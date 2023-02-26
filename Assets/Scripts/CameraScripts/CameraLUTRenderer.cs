@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class CameraLUTRenderer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //public Shader awesomeShader = null;
+    public Material LUTMaterial;
+    void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Graphics.Blit(source, destination, LUTMaterial);
     }
 }

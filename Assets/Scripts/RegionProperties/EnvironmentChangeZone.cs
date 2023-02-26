@@ -7,7 +7,11 @@ public class EnvironmentChangeZone : MonoBehaviour
     [SerializeField] Material LUT;
     private void OnTriggerEnter(Collider other)
     {
-        //set lut of camera to lut in this script
-
+        if (other.gameObject.layer == 3)
+        {
+            //set lut of camera to lut in this script
+            FindObjectOfType<CameraLUTRenderer>().LUTMaterial = LUT;
+        }
+        
     }
 }

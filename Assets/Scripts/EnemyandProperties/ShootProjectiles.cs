@@ -6,7 +6,7 @@ public class ShootProjectiles : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
     [SerializeField] float bulletSpeed = 2f;
-    [SerializeField] float fireRate;
+    [SerializeField] float fireRate = 1f;
     float fireTimer;
     [SerializeField] bool shootAtPlayer = false;
 
