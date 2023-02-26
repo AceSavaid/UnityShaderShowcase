@@ -1,6 +1,30 @@
 # ComputerGraphicsProject
 This project is a level based, 3D first person platformer.  In this game the plyaer avoids obstacles, shoot enemies and pick up new weapons in their attempt to reach the end of each stage.  
 
+# Group Assignmemt   
+## Contributions
+Bradley  
+- Bloom Shader  
+- Decals  
+- Level Designs and Layout  
+
+Alannis  
+- Depth of Field  
+- Blending Material  
+- Programming  
+- UI  
+
+Carlos  
+- Sound Effects  
+- Outlines  
+- Particles  
+
+## Explainations
+
+## Supporting Documents
+
+# Individual Assignment  
+
 ## Alannis Davis
 Project Manager + Gameplay Programmer  
  - Codes the main mechanics and systems of the game as well as manages the progress of the overall game.   
