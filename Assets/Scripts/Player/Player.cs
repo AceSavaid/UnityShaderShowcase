@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
 
     }
 
-    public void HurtPlayer(float val){
+    public void HurtPlayer(float val){ 
         //if player is not hurt i.e is not in invincibility frames
         if (!hurt)
         {
