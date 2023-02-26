@@ -1,18 +1,40 @@
-Shader "Hidden/COutline"
+Shader "Carlos/COutline"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Thickness ("Thickness", Range(1,0)) = 0
+        _OutlineWidth ("Outline Width", Range(0.002, 0.1)) = 0.005
+        _OutlineColor ("Outline Color", Color) = (0,0,0,1)
         
     }
     SubShader
     {
+        Tags { "Geometry"="Transparent" }
+        
+        CGPROGRAM
+        #pragma surface surf Lambert
+        sampler2D _MainTex;
+        struct Input
+        {
+            float2 uv_MainTex;
+        };
+        fixed4 _Color;
+        void surf (Input IN, inout SurfaceOutput o)
+        {
+            // Albedo comes from a texture tinted by color
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
+            o.Albedo = c.rgb;
+        }
+
+        ENDCG
+        
         // No culling or depth
-        Cull Off ZWrite Off ZTest Always
+        //Cull Off ZWrite Off ZTest Always
 
         Pass
         {
+            Cull front  
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -22,33 +44,45 @@ Shader "Hidden/COutline"
             struct appdata
             {
                 float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
+                float4 normal : NORMAL;
+                //float2 uv : TEXCOORD0;
             };
 
             struct v2f
             {
-                float2 uv : TEXCOORD0;
-                float4 vertex : SV_POSITION;
+                //float2 uv : TEXCOORD0;
+                float4 pos : SV_POSITION;
+                float4 color : COLOR;
             };
+
+            float _OutlineWidth;
+            float4 _OutlineColor;
 
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv;
+                o.pos = UnityObjectToClipPos(v.vertex);
+
+                float3 norm = normalize(mul ((float3x3)UNITY_MATRIX_IT_MV, v.normal));
+                float2 offset = TransformViewToProjection(norm.xy);
+                
+                o.pos.xy += offset * o.pos.z * _OutlineWidth;
+                o.color = _OutlineColor;
+                //o.uv = v.uv;
                 return o;
             }
 
-            sampler2D _MainTex;
+            //sampler2D _MainTex;
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col = tex2D(_MainTex, i.uv);
+                //fixed4 col = tex2D(_MainTex, i.uv);
                 // just invert the colors
-                col.rgb = 1 - col.rgb;
-                return col;
+                //col.rgb = 1 - col.rgb;
+                return i.color;
             }
             ENDCG
         }
     }
+    Fallback "Diffuse"
 }
