@@ -22,7 +22,7 @@ public class ShootProjectiles : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject b = Instantiate(bullet);
+        GameObject b = Instantiate(bullet, gameObject.transform);
         if (shootAtPlayer)
         {
             b.transform.rotation = Quaternion.Euler( Vector3.RotateTowards(b.transform.position, FindObjectOfType<Player>().transform.position, 180f, 180f));
