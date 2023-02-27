@@ -2,32 +2,12 @@ Shader "Carlos/COutline"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
         _OutlineWidth ("Outline Width", Range(0.002, 0.1)) = 0.005
         _OutlineColor ("Outline Color", Color) = (0,0,0,1)
         
     }
     SubShader
     {
-        Tags { "Geometry"="Transparent" }
-        
-        CGPROGRAM
-        #pragma surface surf Lambert
-        sampler2D _MainTex;
-        struct Input
-        {
-            float2 uv_MainTex;
-        };
-        fixed4 _Color;
-        void surf (Input IN, inout SurfaceOutput o)
-        {
-            // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
-            o.Albedo = c.rgb;
-        }
-
-        ENDCG
-        
         // No culling or depth
         //Cull Off ZWrite Off ZTest Always
 
