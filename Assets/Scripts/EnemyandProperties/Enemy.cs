@@ -35,4 +35,12 @@ public class Enemy : MonoBehaviour
     {
         return damage;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            collision.gameObject.GetComponent<Player>().HurtPlayer(damage);
+        }
+    }
 }
