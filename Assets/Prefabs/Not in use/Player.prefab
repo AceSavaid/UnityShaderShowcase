@@ -186,8 +186,8 @@ MonoBehaviour:
   textBox: {fileID: 558965688163004816}
   textBoxText: {fileID: 8795492397446706669}
   jumpSound: {fileID: 8300000, guid: d611d8539c165614a89370a31679642b, type: 3}
-  hurtSound: {fileID: 0}
-  healSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: f63fa76afe6c67c48befacc180feaaba, type: 3}
+  healSound: {fileID: 8300000, guid: e2718fa67a37fd94bb537d5113cc1b70, type: 3}
   dieSound: {fileID: 0}
   shootSound: {fileID: 0}
   weaponChangeSound: {fileID: 0}
@@ -195,7 +195,7 @@ MonoBehaviour:
   jumpParticles: {fileID: 0}
   landParticles: {fileID: 0}
   hurtParticles: {fileID: 0}
-  deathParticles: {fileID: 0}
+  deathParticles: {fileID: 3062023977092167845}
 --- !u!114 &7707567502779665808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,6 +490,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2916878246461540972}
     m_Modifications:
+    - target: {fileID: 4019604031138268837, guid: 9b7959e07920a794bbfd1b687a73021e, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5408859054128449227, guid: 9b7959e07920a794bbfd1b687a73021e, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -556,6 +560,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7959e07920a794bbfd1b687a73021e, type: 3}
+--- !u!198 &3062023977092167845 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4019604031138268837, guid: 9b7959e07920a794bbfd1b687a73021e, type: 3}
+  m_PrefabInstance: {fileID: 2141177969047453184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6243922728085911755 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5408859054128449227, guid: 9b7959e07920a794bbfd1b687a73021e, type: 3}
