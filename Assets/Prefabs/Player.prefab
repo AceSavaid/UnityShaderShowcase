@@ -101,6 +101,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 48c94131a7bc45f4aa8af0e82611525d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -182,7 +183,7 @@ MonoBehaviour:
   HurtOverlay: {fileID: 0}
   textBox: {fileID: 558965688163004816}
   textBoxText: {fileID: 8795492397446706669}
-  jumpSound: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: d611d8539c165614a89370a31679642b, type: 3}
   hurtSound: {fileID: 0}
   healSound: {fileID: 0}
   dieSound: {fileID: 0}
@@ -357,6 +358,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 48c94131a7bc45f4aa8af0e82611525d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
