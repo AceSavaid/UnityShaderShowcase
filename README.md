@@ -1,8 +1,12 @@
 # ComputerGraphicsProject
 This project is a level based, 3D first person platformer.  In this game the plyaer avoids obstacles, shoot enemies and pick up new weapons in their attempt to reach the end of each stage.  
 
+## Supporting Documents
+Slides:  https://docs.google.com/presentation/d/1qHUVmM7UDbQPsCz0wPt5AmObGQ26cu6l9dbFuFq-ypY/edit?usp=sharing
+YoutubeLink: https://youtu.be/R_RzUvM6myo  
+
 # **Group Assignmemt**   
-## Contributions
+## Contributions  
 Bradley  
 - Bloom Shader  
 - Decals  
@@ -10,18 +14,26 @@ Bradley
 
 Alannis  
 - Depth of Field  
-- Blending Material  
+- Void Material  
 - Programming  
-- UI  
 
 Carlos  
 - Sound Effects  
 - Outlines  
 - Particles  
 
-## Explainations
+## Explainations  
+Void Material  
+This works similar to the rim lighting shader but it allows transparency and and alpha value.  The Saturation of the dot product of the normalised view direction and normal is set as the rim and that is then multiplied by the rim power.  This rim value is then applied to the level of colour and transparency the object has so that the center is the most opaque and coloured and the outer edges are transparents and lack colour.  
 
-## Supporting Documents
+Decal  
+Gets two textures and applies one on top of the other to give it more detail such as bullet holes or scorch marks  
+
+Particles  
+Applies a material to a sprite in the particle system to have various properties and functions appied to it.  
+
+Depth of Field  
+Blurs what is rendered in the camera by how far it is from the  camera. 
 
 
 # **Individual Assignment**  
