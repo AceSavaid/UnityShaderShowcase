@@ -2667,7 +2667,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8535850428867451972, guid: 268b04f07d253474db54067bcc236fb2, type: 3}
   m_PrefabInstance: {fileID: 2314692456843951558}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &353807661
+--- !u!114 &353807665
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2679,7 +2679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9beda531928fc40968802117a5d256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RecenterTarget: 2
+  m_RecenterTarget: 1
   m_VerticalAxis:
     Value: 0
     m_SpeedMode: 0
@@ -8097,6 +8097,7 @@ GameObject:
   - component: {fileID: 714297426}
   - component: {fileID: 714297425}
   - component: {fileID: 714297424}
+  - component: {fileID: 714297430}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8124,7 +8125,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714297423}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c25bf050e7ffb04bb68c48209593fda, type: 3}
   m_Name: 
@@ -8213,7 +8214,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -8234,6 +8235,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+--- !u!114 &714297430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714297423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1268d0bf8794f834c887243a86d60afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dofShader: {fileID: 4800000, guid: 8167cf26a3e7cd74390644265c188962, type: 3}
+  focusDistance: 0.54
+  focusRange: 7.88
 --- !u!1001 &763124197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18815,7 +18831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640909444066361168, guid: 268b04f07d253474db54067bcc236fb2, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3188809735117542910, guid: 268b04f07d253474db54067bcc236fb2, type: 3}
       propertyPath: m_IsActive
