@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AToonMaterial
-  m_Shader: {fileID: 4800000, guid: b84014ec92ab45847a97ac689bbda223, type: 3}
+  m_Shader: {fileID: 4800000, guid: 58914624358152f4e9ba5227c6dcf894, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -62,6 +62,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BumpAmount: 1
     - _BumpScale: 1
     - _Contribution: 0.5
     - _Cutoff: 0.5
