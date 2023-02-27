@@ -12,7 +12,6 @@ Shader "Alannis/ShadowsShaderr"
         #pragma surface surf SimpleSpecular
 
         half _Pow;
-
         half4 LightingSimpleSpecular (SurfaceOutput s, half3 lightDir, half3 viewDir, half atten) {
             half3 h = normalize (lightDir + viewDir);
 
@@ -30,9 +29,7 @@ Shader "Alannis/ShadowsShaderr"
         struct Input {
             float2 uv_MainTex;
         };
-        
         sampler2D _MainTex;
-        
         void surf (Input IN, inout SurfaceOutput o) {
             o.Albedo = tex2D (_MainTex, IN.uv_MainTex).rgb;
         }
@@ -112,5 +109,4 @@ Shader "Alannis/ShadowsShaderr"
             ENDCG
         }
     }
-   
 }
