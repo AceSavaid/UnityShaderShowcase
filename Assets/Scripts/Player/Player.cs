@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
             //instantiate bullet from current weapon and projects it forward
             GameObject b = Instantiate(currentWeapon.projectile, transform);
             b.transform.parent = null;
-            b.GetComponent<Rigidbody>().AddForce(Vector3.forward * currentWeapon.bulletSpeed);
+            b.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * currentWeapon.bulletSpeed);
             Destroy(b, 5);
             canshoot = false;
         }
@@ -292,6 +292,7 @@ public class Player : MonoBehaviour
     {
         if (particle)
         {
+            particle.Clear();
             particle.Play();
         }
     }
