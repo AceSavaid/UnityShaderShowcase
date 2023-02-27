@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5282492825947081593}
   - component: {fileID: 2055671112989196898}
   - component: {fileID: 4352801023081264403}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5282492826383222227}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ChaseEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

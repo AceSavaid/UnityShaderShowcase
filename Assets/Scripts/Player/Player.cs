@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class Player : MonoBehaviour
     PlayerAct controls;
 
     [SerializeField] private Transform head;
-    [SerializeField, Range(0,89.9f)] private float viewLockY;
+    //[SerializeField, Range(0,89.9f)] private float viewLockY;
     private Vector2 intendedDirection;
     private Vector2 mouseDir;
     public float mouseSensitivity;
@@ -141,12 +142,14 @@ public class Player : MonoBehaviour
         //if player is not hurt i.e is not in invincibility frames
         if (!hurt)
         {
-            currentHealth -= val;
-            PlayVisualEffect(hurtParticles);
-
             if (currentHealth <= 0)
             {
                 Die();
+            }
+            else
+            {
+                currentHealth -= val; 
+                PlayVisualEffect(hurtParticles);
             }
         }
         
@@ -163,9 +166,11 @@ public class Player : MonoBehaviour
 
     public void Die(){
         
+        PlayVisualEffect(deathParticles);
+
         //turn on DeathScreenUI
         deathScreen.gameObject.SetActive(true);
-
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -196,6 +201,7 @@ public class Player : MonoBehaviour
         if (isGrounded)
         {
             PlaySoundEffect(jumpSound);
+            PlayVisualEffect(jumpParticles);
             rb.AddForce(jumpHeight * Vector3.up, ForceMode.Impulse);
         }
         
@@ -228,22 +234,19 @@ public class Player : MonoBehaviour
 
     private void RotateCamera()
     {
-
-        transform.rotation *= Quaternion.AngleAxis(intendedDirection.x * mouseSensitivity * Time.deltaTime, Vector3.up);
+        transform.rotation *= Quaternion.Euler(intendedDirection.x * mouseSensitivity * Time.deltaTime * Vector3.up);
         head.rotation *= Quaternion.AngleAxis(-intendedDirection.y * mouseSensitivity * Time.deltaTime, Vector3.right);
 
-        Vector3 angles = Vector3.zero;
+        Vector3 angles = Vector3.right * head.localEulerAngles.x;
 
-        angles.x = head.localEulerAngles.x;
-
-        if (angles.x > 180 && angles.x < 360 - viewLockY)
+        if (angles.x < -180) // I can see that you are trying to set limit for camera angle - fixed
         {
-            angles.x = 360 - viewLockY;
+            angles.x = -180;
         }
-        else if (angles.x < 180 && angles.x > viewLockY)
+        
+        if (angles.x > 360)
         {
-            angles.x = viewLockY;
-            angles.x = viewLockY;
+            angles.x = 180;
         }
 
 
@@ -302,7 +305,15 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             isGrounded = true;
+        }
+        
+    }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            HurtPlayer(0.5f);
         }
     }
 
