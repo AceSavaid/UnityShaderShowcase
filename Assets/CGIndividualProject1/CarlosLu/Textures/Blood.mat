@@ -89,7 +89,7 @@ Material:
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 1
-    - _SoftParticlesFarFadeDistance: 1.54
+    - _SoftParticlesFarFadeDistance: 2.17
     - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 5
@@ -100,5 +100,5 @@ Material:
     - _Color: {r: 0.6509434, g: 0, b: 0.016549587, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SoftParticleFadeParams: {r: 0, g: 0.64935064, b: 0, a: 0}
+    - _SoftParticleFadeParams: {r: 0, g: 0.46082947, b: 0, a: 0}
   m_BuildTextureStacks: []
