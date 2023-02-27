@@ -1,6 +1,10 @@
 # ComputerGraphicsProject
 This project is a level based, 3D first person platformer.  In this game the plyaer avoids obstacles, shoot enemies and pick up new weapons in their attempt to reach the end of each stage.  
 
+## Supporting Documents
+Slides:  https://docs.google.com/presentation/d/1qHUVmM7UDbQPsCz0wPt5AmObGQ26cu6l9dbFuFq-ypY/edit?usp=sharing
+YoutubeLink: https://youtu.be/R_RzUvM6myo  
+
 # **Group Assignmemt**   
 ## Contributions  
 Bradley  
@@ -31,9 +35,6 @@ Applies a material to a sprite in the particle system to have various properties
 Depth of Field  
 Blurs what is rendered in the camera by how far it is from the  camera. 
 
-## Supporting Documents
-Slides:  https://docs.google.com/presentation/d/1qHUVmM7UDbQPsCz0wPt5AmObGQ26cu6l9dbFuFq-ypY/edit?usp=sharing
-YoutubeLink: 
 
 # **Individual Assignment**  
 
