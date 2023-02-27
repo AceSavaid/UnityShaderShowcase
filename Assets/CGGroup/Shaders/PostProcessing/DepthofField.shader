@@ -1,4 +1,4 @@
-Shader "Custom/DepthofField"
+Shader "Alannis/DepthofField"
 {
     Properties {
 _MainTex ("Texture", 2D) = "white" {}
@@ -24,44 +24,44 @@ _MainTex ("Texture", 2D) = "white" {}
     }
     ENDCG
     SubShader {
-    Cull Off
-    ZTest Always
-    ZWrite Off
-    Pass {
-        CGPROGRAM
-        #pragma vertex VertexProgram
-        #pragma fragment FragmentProgram
-        half FragmentProgram (Interpolators i) : SV_Target {
-            //return tex2D(_MainTex, i.uv);
-            half depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv);
-            depth = LinearEyeDepth(depth);
-            //return depth;
-            float coc = (depth - _FocusDistance)/ _FocusRange;
-            coc = clamp(coc, -1, 1);
-            //if(coc < 0){
-                //return coc * -half(1,0,0,1);
-            //}
-            return coc;
-        }
-        ENDCG
-    }
-    Pass {//1 bokehPass
-        CGPROGRAM
+        Cull Off
+        ZTest Always
+        ZWrite Off
+        Pass {
+            CGPROGRAM
             #pragma vertex VertexProgram
             #pragma fragment FragmentProgram
-            half4 FragmentProgram(Interpolators i) : SV_Target {
-                half3 color = 0;
-                for (int u = -4; u <= 4; u++) {
-                    for (int v = -4; v <= 4; v++) {
-                        float2 o = float2(u, v) * _MainTex_TexelSize.xy ;
-                        color += tex2D(_MainTex, i.uv + o).rgb;
-                    }
-                }
-                color *= 1.0 / 81;
-                return half4(color, 1);
+            half FragmentProgram (Interpolators i) : SV_Target {
+                //return tex2D(_MainTex, i.uv);
+                half depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv);
+                depth = LinearEyeDepth(depth);
+                //return depth;
+                float coc = (depth - _FocusDistance)/ _FocusRange;
+                coc = clamp(coc, -1, 1);
+                //if(coc < 0){
+                    //return coc * -half(1,0,0,1);
+                //}
+                return coc;
             }
-        ENDCG
+            ENDCG
+        }
+        Pass {//1 bokehPass
+            CGPROGRAM
+                #pragma vertex VertexProgram
+                #pragma fragment FragmentProgram
+                half4 FragmentProgram(Interpolators i) : SV_Target {
+                    half3 color = 0;
+                    for (int u = -4; u <= 4; u++) {
+                        for (int v = -4; v <= 4; v++) {
+                            float2 o = float2(u, v) * _MainTex_TexelSize.xy ;
+                            color += tex2D(_MainTex, i.uv + o).rgb;
+                        }
+                    }
+                    color *= 1.0 / 81;
+                    return half4(color, 1);
+                }
+            ENDCG
+        }
     }
-}
     FallBack "Diffuse"
 }
