@@ -2,7 +2,7 @@ Shader "Carlos/COutline"
 {
     Properties
     {
-        _OutlineWidth ("Outline Width", Range(0.002, 0.5)) = 0.005
+        _OutlineWidth ("Outline Width", Range(0.0, 10)) = 0.005
         _OutlineColor ("Outline Color", Color) = (0,0,0,1)
         
     }
