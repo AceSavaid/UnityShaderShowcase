@@ -18,6 +18,10 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
+    private void Update()
+    {
+        gameObject.transform.LookAt(FindObjectOfType<Player>().transform);
+    }
 
     public void HurtEnemy(float val)
     {

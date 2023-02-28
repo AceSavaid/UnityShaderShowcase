@@ -181,8 +181,8 @@ public class Player : MonoBehaviour
         {
             //instantiate bullet from current weapon and projects it forward
             GameObject b = Instantiate(currentWeapon.projectile, transform);
-            b.transform.parent = null;
             b.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * currentWeapon.bulletSpeed);
+            b.gameObject.transform.parent = null;
             Destroy(b, 5);
             canshoot = false;
         }
@@ -313,7 +313,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
-            HurtPlayer(0.5f);
+            HurtPlayer(0.1f);
         }
     }
 

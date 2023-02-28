@@ -20,11 +20,11 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.layer == 7 && !enemyBullet)
+        if (collision.gameObject.layer == 7 && !enemyBullet) //if player bullet hitting enemy
         {
             collision.gameObject.GetComponent<Enemy>().HurtEnemy(damage);
         }
-        if (collision.gameObject.layer == 3 && enemyBullet)
+        if (collision.gameObject.layer == 3 && enemyBullet) //if enemy bullet hitting player
         {
             collision.gameObject.GetComponent<Player>().HurtPlayer(damage);
         }

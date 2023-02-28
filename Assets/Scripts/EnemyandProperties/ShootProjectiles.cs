@@ -18,6 +18,7 @@ public class ShootProjectiles : MonoBehaviour
             Shoot();
             fireTimer -= fireRate;
         }
+        
     }
 
     private void Shoot()
@@ -25,10 +26,11 @@ public class ShootProjectiles : MonoBehaviour
         GameObject b = Instantiate(bullet, gameObject.transform);
         if (shootAtPlayer)
         {
-            b.transform.rotation = Quaternion.Euler( Vector3.RotateTowards(b.transform.position, FindObjectOfType<Player>().transform.position, 180f, 180f));
+            //b.transform.rotation = Quaternion.Euler( Vector3.RotateTowards(b.transform.position, FindObjectOfType<Player>().transform.position, 180f, 180f));
             
         }
-        b.GetComponent<Rigidbody>().AddForce(bulletSpeed * Vector3.forward);
+        b.GetComponent<Rigidbody>().AddForce(bulletSpeed * gameObject.transform.forward);
+        b.transform.parent = null;
         Destroy(b, 5f);
     }
 }
