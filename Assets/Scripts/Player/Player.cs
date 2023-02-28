@@ -191,7 +191,7 @@ public class Player : MonoBehaviour
 
     protected void Movement()
     {
-        rb.AddForce(speed * moveDirection.x * transform.forward, ForceMode.Acceleration);
+        rb.AddForce(speed* moveDirection.x * transform.forward, ForceMode.Acceleration);
         rb.AddForce(speed * moveDirection.y * transform.right, ForceMode.Acceleration);
         //rb.position += new Vector3(moveDirection.y, 0, moveDirection.x)* speed * Time.deltaTime;
     }

@@ -126,7 +126,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3964985456181908887
 MonoBehaviour:
@@ -144,6 +144,7 @@ MonoBehaviour:
   bulletSpeed: 2
   fireRate: 1
   shootAtPlayer: 1
+  shootRange: 0
 --- !u!114 &852740038128558799
 MonoBehaviour:
   m_ObjectHideFlags: 0

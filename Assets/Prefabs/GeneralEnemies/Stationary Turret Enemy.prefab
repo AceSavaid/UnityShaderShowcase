@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1310652333167566730}
   - component: {fileID: 1310652333167566772}
   - component: {fileID: 4816058881678362256}
+  - component: {fileID: 2888342384724072848}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -148,6 +149,7 @@ MonoBehaviour:
   bulletSpeed: 3
   fireRate: 1
   shootAtPlayer: 1
+  shootRange: 0
 --- !u!114 &4816058881678362256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +166,16 @@ MonoBehaviour:
   currentHealth: 0
   damage: 2
   healthbar: {fileID: 0}
+--- !u!135 &2888342384724072848
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310652333167566734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
