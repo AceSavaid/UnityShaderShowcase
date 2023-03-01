@@ -129,6 +129,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1781104373293784682, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2034742133927549061, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -307,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6844919586304097999, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.6800003
+      value: -5.68
       objectReference: {fileID: 0}
     - target: {fileID: 6844919586304097999, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -324,6 +328,10 @@ PrefabInstance:
     - target: {fileID: 6844919586304097999, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937718301417474134, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
+      propertyPath: m_Name
+      value: Next Level Button
       objectReference: {fileID: 0}
     - target: {fileID: 8137259237669151059, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -352,6 +360,10 @@ PrefabInstance:
     - target: {fileID: 8137259237669151059, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271326766247951309, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.68
       objectReference: {fileID: 0}
     - target: {fileID: 8970476663961325813, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
       propertyPath: m_IsActive
