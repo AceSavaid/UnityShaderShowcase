@@ -70,12 +70,7 @@ Shader "Custom/Water"
 
             float4 temp = float4(v.vertex.x, v.vertex.y, v.vertex.z, 1.0);
             temp.xyz += displacement * v.normal * _DisplacementStrength;
-            if(temp.y > 0){
-                temp.y = 1 *_z;
-            }
-            else{
-                temp.y = -1 *_z;
-            }
+            
             v.vertex.y = temp.y ;
             v.normal = normalize(float3(v.normal.x + temp.y, v.normal.y, v.normal.z));
 

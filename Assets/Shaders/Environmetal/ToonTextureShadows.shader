@@ -3,11 +3,15 @@ Shader "Custom/ToonTextureShadows"
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
-        _ShadowColour("Shadow Colour", Color) = (0,0.5,1,1)
-         _STexZoom("Shadow Texture Zoom", Range(0, 20)) = 1
-        _ShadowTexture("Shadow Texture", 2D) = "white" {}
-        _SecondShadow("Second Shadow Level", Range(0,1)) = 0.5
         _MainTex ("Albedo (RGB)", 2D) = "white" {} 
+
+        _ShadowColour("Shadow Colour", Color) = (0,0.5,1,1)
+         
+        _ShadowTexture("Shadow Texture", 2D) = "white" {}
+        _STexZoom("Shadow Texture Zoom", Range(0, 20)) = 1
+        _SecondShadow("Second Shadow Level", Range(0,1)) = 0.5
+        
+        _RampTex("Toon Ramp Texture", 2D) = "white" {}
 
     }
     SubShader{

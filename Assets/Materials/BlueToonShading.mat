@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BlueToonShading
-  m_Shader: {fileID: 4800000, guid: 58914624358152f4e9ba5227c6dcf894, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5beffb57c6b455a449152cfc6fdce69f, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4

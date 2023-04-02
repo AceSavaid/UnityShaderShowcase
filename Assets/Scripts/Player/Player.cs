@@ -193,13 +193,9 @@ public class Player : MonoBehaviour
     {
         rb.AddForce(speed* moveDirection.x * transform.forward, ForceMode.Acceleration);
         rb.AddForce(speed * moveDirection.y * transform.right, ForceMode.Acceleration);
-        /*gameObject.transform.localPosition += new Vector3(moveDirection.y, 0, moveDirection.x)* speed * Time.deltaTime;
-        if (!isGrounded)
-        {
-            gameObject.transform.position += new Vector3(0, 0.5f, 0) * Time.deltaTime;
-        }*/
+        //gameObject.transform.localPosition += new Vector3(moveDirection.y, 0, moveDirection.x)* speed * Time.deltaTime;
+       
 
-        //gameObject.transform.Rotate(new Vector3 (0, mouseDir.x,0));
     }
 
     void Jump()
