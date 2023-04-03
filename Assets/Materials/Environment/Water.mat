@@ -86,7 +86,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _m: 4.9
-    - _speed: 1.7
+    - _speed: 0.4
     - _v: 7.6
     - _z: 3
     m_Colors:

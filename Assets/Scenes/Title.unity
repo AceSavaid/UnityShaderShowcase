@@ -3066,6 +3066,7 @@ GameObject:
   - component: {fileID: 1038297961}
   - component: {fileID: 1038297960}
   - component: {fileID: 1038297963}
+  - component: {fileID: 1038297964}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3152,8 +3153,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dofShader: {fileID: 4800000, guid: 8167cf26a3e7cd74390644265c188962, type: 3}
-  focusDistance: 10
+  focusDistance: 28.3
   focusRange: 3.19
+--- !u!114 &1038297964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038297959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45fd1fb67f6892844be069d370913f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iterations: 1
 --- !u!1 &1113845885
 GameObject:
   m_ObjectHideFlags: 0

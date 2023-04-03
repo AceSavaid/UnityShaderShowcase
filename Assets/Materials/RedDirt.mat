@@ -57,7 +57,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 2800000, guid: 285e89c5f58272c4bb65d3b2185faa67, type: 3}
+        m_Texture: {fileID: 2800000, guid: 78a896b7d2b75eb4d8d4b0e61e6a0c72, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowTexture:
