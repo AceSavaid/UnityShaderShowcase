@@ -2,7 +2,7 @@
 This project is a level based, 3D third person platformer.  In this game the plyaer avoids obstacles, shoot enemies and pick up new weapons in their attempt to reach the end of each stage.  
 
 ## Final Project:  
-Line shadow texture was from tutorrial 
+Credits: Line shadow texture was from tutorrial.  Bases of scripts were from lectures.  Probuilder and Cinemachine were used. 
 All other textures, music and normal maps were made by us.  
 Slides: https://docs.google.com/presentation/d/10Lnsc44KVlqOOGGfMC5SAeE4YbPRhudr1aMxsp9T6-0/edit?usp=sharing  
 Youtube Video:  
@@ -14,6 +14,10 @@ Youtube Video:
 
 
 ### Colour Correction
+
+### Visual Effects
+
+### Additional Effects
 
 
 
