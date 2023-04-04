@@ -410,6 +410,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3018367168534804774}
     - target: {fileID: 7287741212862637742, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
+      propertyPath: LUTSlider
+      value: 
+      objectReference: {fileID: 3964675607494441140}
+    - target: {fileID: 7287741212862637742, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
       propertyPath: LUTToggle
       value: 
       objectReference: {fileID: 6881497724883683522}
@@ -556,6 +560,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bee6037aa62453344a6703dcc333109b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3964675607494441140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5437950849757513795, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
+  m_PrefabInstance: {fileID: 8967265031402565879}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4502009695463840948 stripped

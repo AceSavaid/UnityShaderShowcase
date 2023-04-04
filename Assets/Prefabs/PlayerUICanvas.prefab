@@ -154,7 +154,11 @@ MonoBehaviour:
   pixelAmountSlider: {fileID: 59203821232585311}
   lutCamera: {fileID: 0}
   LUTToggle: {fileID: 0}
-  LutMats: []
+  LUTSlider: {fileID: 0}
+  LutMats:
+  - {fileID: 2100000, guid: 50b5acde642a5b74e96089ae626d8965, type: 2}
+  - {fileID: 2100000, guid: 54121b851a2e64143812071f5d0d0241, type: 2}
+  - {fileID: 2100000, guid: c7502383c5108d14ea8211f4449a8e39, type: 2}
   mathandler: []
   materialSetting: 1
   materialSettingSlider: {fileID: 0}
@@ -792,6 +796,34 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 283460649847440628, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 283460649847440628, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 283460649847440628, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5617114667999786664}
+    - target: {fileID: 283460649847440628, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 283460649847440628, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeBloom
+      objectReference: {fileID: 0}
+    - target: {fileID: 283460649847440628, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DebugMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 283460649847440628, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 307206716096398730, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
       propertyPath: m_Name
       value: LUT Toggle
@@ -807,6 +839,34 @@ PrefabInstance:
     - target: {fileID: 802524982370645979, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053749023058258416, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053749023058258416, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053749023058258416, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5617114667999786664}
+    - target: {fileID: 1053749023058258416, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053749023058258416, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeBloom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053749023058258416, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DebugMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053749023058258416, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1294500234429341123, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
       propertyPath: m_AnchorMax.y
@@ -827,6 +887,34 @@ PrefabInstance:
     - target: {fileID: 2731685389206578738, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762024015162512458, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762024015162512458, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762024015162512458, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5617114667999786664}
+    - target: {fileID: 2762024015162512458, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762024015162512458, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeBloom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762024015162512458, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DebugMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762024015162512458, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3241242070884268072, guid: 2aef31d555e0bc5418434e2423df3b79, type: 3}
       propertyPath: m_AnchorMax.y
