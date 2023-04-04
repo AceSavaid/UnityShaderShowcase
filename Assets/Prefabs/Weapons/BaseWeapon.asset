@@ -15,4 +15,4 @@ MonoBehaviour:
   projectile: {fileID: 6064552942968857912, guid: b321332576d2dc04b9b1e34fe9f329cc, type: 3}
   bulletSpeed: 10
   bulletDamage: 2
-  ReloadTime: 1.5
+  ReloadTime: 0.5

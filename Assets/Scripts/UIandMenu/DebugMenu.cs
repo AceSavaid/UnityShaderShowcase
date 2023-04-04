@@ -67,6 +67,7 @@ public class DebugMenu : MonoBehaviour
         blureRangeSlider.value = blur.focusRange;
 
         pixelAmountSlider.maxValue = 32;
+        pixelAmountSlider.minValue = 1;
         pixelAmountSlider.value = 4;
 
         LUTSlider.maxValue = LutMats.Count-1;
