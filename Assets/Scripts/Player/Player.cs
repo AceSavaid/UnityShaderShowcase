@@ -274,6 +274,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ToggleDebug()
+    {
+
+    }
+
     public void ShowTextBox(string text)
     {
         textBoxText.text = text;
