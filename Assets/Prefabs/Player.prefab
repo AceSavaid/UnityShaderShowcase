@@ -439,7 +439,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969488608336111136, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
       propertyPath: BlockSize
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969488608336111136, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
+      propertyPath: _renderTexture
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4969488608336111136, guid: 9059b92e73a3f1649970ae2bc9e9ffc8, type: 3}
       propertyPath: pixelizationCompute
