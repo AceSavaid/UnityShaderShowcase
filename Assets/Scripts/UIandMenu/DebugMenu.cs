@@ -34,6 +34,7 @@ public class DebugMenu : MonoBehaviour
     [Header("Pixelization", order = 2)]
     [SerializeField] Pixelization pixelization;
     [SerializeField] Toggle pixelToggle;
+    [SerializeField] int pixelationAmount;
 
     [SerializeField] [Range(1,32)]int pixelAmount;
 
@@ -66,7 +67,7 @@ public class DebugMenu : MonoBehaviour
         blureRangeSlider.value = blur.focusRange;
 
         pixelAmountSlider.maxValue = 32;
-        pixelAmountSlider.value = 2;
+        pixelAmountSlider.value = 4;
 
         LUTSlider.maxValue = LutMats.Count-1;
 
@@ -110,7 +111,7 @@ public class DebugMenu : MonoBehaviour
 
     public void ChangePixels()
     {
-        //pixelization. = (int)pixelAmountSlider.value;
+        pixelization.BlockSize = (int)pixelAmountSlider.value;
     }
 
     public void ToggleLUT()

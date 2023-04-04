@@ -8,13 +8,9 @@ public class Pixelization : MonoBehaviour
 
     int _screenWidth;
     int _screenHeight;
+    bool isOn = true;
     public RenderTexture _renderTexture;  
-
-    void Start()
-    {
-        CreateRenderTexture();
-    }
-
+    
     void CreateRenderTexture()
     {
         _screenWidth = Screen.width;
@@ -28,7 +24,7 @@ public class Pixelization : MonoBehaviour
 
     void Update()
     {
-        if (Screen.width != _screenWidth || Screen.height != _screenHeight)
+        if (Screen.width != _screenWidth || Screen.height != _screenHeight && isOn)
             CreateRenderTexture();
     }
 
@@ -49,6 +45,10 @@ public class Pixelization : MonoBehaviour
             1);
         
         Graphics.Blit(_renderTexture, destination);
+    }
 
+    bool DisablePixelation()
+    {
+        return !isOn;
     }
 }
