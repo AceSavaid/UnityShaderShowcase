@@ -36,7 +36,7 @@ void Pixelation (uint3 id : SV_DispatchThreadID)
             colour += Result[pixelPos];
         }
     }
-    colour /= numPixels; // Get nearest-neighbor by dividing colour from number of pixels, the average colour.
+    colour /= numPixels; // Get average colour by dividing colour from number of pixels.
 
     // APPLY COLORS
     for (int i = 0; i < blockWidth; i++)

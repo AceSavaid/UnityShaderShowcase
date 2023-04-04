@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//[ExecuteInEditMode, ImageEffectAllowedInSceneView]
+[ExecuteInEditMode, ImageEffectAllowedInSceneView]
 public class Pixelization : MonoBehaviour
 {
     [SerializeField] private ComputeShader pixelizationCompute; 

@@ -426,6 +426,27 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 541d329a255a48e428a81355ea357d8e, type: 2}
   - {fileID: 2100000, guid: 637dd524f37446a4dad77f2a1e96e071, type: 2}
   - {fileID: 2100000, guid: 22f3b04c5145272409c0c028781fe5d9, type: 2}
+--- !u!1 &99181205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5282492825947081597, guid: 97db848aab0151b4c8523d20cee037ec, type: 3}
+  m_PrefabInstance: {fileID: 878656492}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &99181213
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99181205}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &121143272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,9 +1354,21 @@ PrefabInstance:
       value: -5.68
       objectReference: {fileID: 0}
     - target: {fileID: 4072674109735130839, guid: e4340a4f32532f6419496f6a3e0175b7, type: 3}
+      propertyPath: BlockSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072674109735130839, guid: e4340a4f32532f6419496f6a3e0175b7, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4072674109735130839, guid: e4340a4f32532f6419496f6a3e0175b7, type: 3}
+      propertyPath: _renderTexture
+      value: 
+      objectReference: {fileID: 980765862}
+    - target: {fileID: 4072674109735130839, guid: e4340a4f32532f6419496f6a3e0175b7, type: 3}
+      propertyPath: pixelizationCompute
+      value: 
+      objectReference: {fileID: 7200000, guid: 48d3bd9c1281a1546840a9e49ab098a4, type: 3}
     - target: {fileID: 4108353790813911366, guid: e4340a4f32532f6419496f6a3e0175b7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -8816,6 +8849,43 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 541d329a255a48e428a81355ea357d8e, type: 2}
   - {fileID: 2100000, guid: 637dd524f37446a4dad77f2a1e96e071, type: 2}
   - {fileID: 2100000, guid: 22f3b04c5145272409c0c028781fe5d9, type: 2}
+--- !u!84 &980765862
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 562
+  m_Height: 316
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &1006513009
 GameObject:
   m_ObjectHideFlags: 0
