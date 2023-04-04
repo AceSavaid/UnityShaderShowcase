@@ -1,5 +1,21 @@
 # ComputerGraphicsProject
-This project is a level based, 3D first person platformer.  In this game the plyaer avoids obstacles, shoot enemies and pick up new weapons in their attempt to reach the end of each stage.  
+This project is a level based, 3D third person platformer.  In this game the plyaer avoids obstacles, shoot enemies and pick up new weapons in their attempt to reach the end of each stage.  
+
+## Final Project:  
+Line shadow texture was from tutorrial 
+All other textures, music and normal maps were made by us.  
+Slides: https://docs.google.com/presentation/d/10Lnsc44KVlqOOGGfMC5SAeE4YbPRhudr1aMxsp9T6-0/edit?usp=sharing  
+Youtube Video:  
+
+### Itegrations
+
+
+### Texturing
+
+
+### Colour Correction
+
+
 
 ## Supporting Documents
 Slides:  https://docs.google.com/presentation/d/1qHUVmM7UDbQPsCz0wPt5AmObGQ26cu6l9dbFuFq-ypY/edit?usp=sharing
