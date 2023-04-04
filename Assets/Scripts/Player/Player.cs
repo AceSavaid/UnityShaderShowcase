@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] Slider healthbar;
     [SerializeField] GameObject PauseMenu;
+    [SerializeField] GameObject DebugMenu;
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject deathScreen;
     [SerializeField] GameObject HealOverlay;
@@ -86,6 +87,7 @@ public class Player : MonoBehaviour
         controls.Player.Pause.performed += ctx => PauseGame();
 
 
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -109,7 +111,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        
         RotateCamera(); 
 
         if (hurt)
@@ -136,6 +138,10 @@ public class Player : MonoBehaviour
         UpdateUI();
 
 
+    }
+    private void FixedUpdate()
+    {
+        Movement();
     }
 
     public void HurtPlayer(float val){ 
@@ -191,10 +197,12 @@ public class Player : MonoBehaviour
 
     protected void Movement()
     {
-        rb.AddForce(speed* moveDirection.x * transform.forward, ForceMode.Acceleration);
-        rb.AddForce(speed * moveDirection.y * transform.right, ForceMode.Acceleration);
+        rb.AddForce(5* speed* moveDirection.x * transform.forward, ForceMode.Force);
+        rb.AddForce(5*speed * moveDirection.y * transform.right, ForceMode.Force);
         //gameObject.transform.localPosition += new Vector3(moveDirection.y, 0, moveDirection.x)* speed * Time.deltaTime;
-       
+        if(!isGrounded) {
+            rb.AddForce(-transform.up * 0.5f, ForceMode.Force);
+        }
 
     }
 
@@ -268,6 +276,7 @@ public class Player : MonoBehaviour
         else
         {
             PauseMenu.SetActive(false);
+            DebugMenu.SetActive(false);
             Time.timeScale = 1;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -276,7 +285,21 @@ public class Player : MonoBehaviour
 
     public void ToggleDebug()
     {
-
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            DebugMenu.SetActive(true);
+            Time.timeScale = 0;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            DebugMenu.SetActive(false);
+            Time.timeScale = 1;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void ShowTextBox(string text)

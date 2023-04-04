@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DebugMenu : MonoBehaviour
 {
-    [SerializeField] bool debugMode = false;
+    //[SerializeField] bool debugMode = false;
     [Header("Post Processing", order = 1)]
     [SerializeField] Toggle ppToggle;
     [Header("Bloom", order = 2)]
@@ -22,7 +22,7 @@ public class DebugMenu : MonoBehaviour
 
     [Header("Dof", order = 2)]
     
-    [SerializeField] BlurCamera blur;
+    [SerializeField] DepthOfField blur;
     [SerializeField] Toggle dofToggle;
 
     [SerializeField] int blurDepth;
@@ -46,9 +46,9 @@ public class DebugMenu : MonoBehaviour
     [SerializeField] List<Material> LutMats = new List<Material>(); 
 
     [Header("Material", order = 1)]
-    [SerializeField] List<MaterialHandler> mathandler = new List<MaterialHandler>();
+    [SerializeField] List<MaterialSwap> mathandler = new List<MaterialSwap>();
 
-    [SerializeField] int materialSetting = 1;
+    [SerializeField] int materialSetting = 11;
     [SerializeField] Slider materialSettingSlider;
 
     void Awake()
@@ -60,10 +60,17 @@ public class DebugMenu : MonoBehaviour
         bloomIntensitySlider.maxValue = 10;
         bloomIntensitySlider.value = bloom.intensity;
 
+        blurDepthSlider.maxValue = 10;
+        blurDepthSlider.value = blur.focusDistance;
+        blureRangeSlider.maxValue = 10;
+        blureRangeSlider.value = blur.focusRange;
+
         pixelAmountSlider.maxValue = 32;
         pixelAmountSlider.value = 2;
 
-        LUTSlider.maxValue = LutMats.Count;
+        LUTSlider.maxValue = LutMats.Count-1;
+
+        //materialSettingSlider.maxValue = materialSetting-1;
 
     }
 
@@ -93,7 +100,7 @@ public class DebugMenu : MonoBehaviour
     public void ChangeDoF()
     {
         blur.focusRange = blureRangeSlider.value;
-        blur.focusDistance = blurDepthSlider.value;
+        blur.bokehRadius = blurDepthSlider.value;
     }
 
     public void TogglePixelization()
@@ -119,7 +126,10 @@ public class DebugMenu : MonoBehaviour
 
     public void ToggleMaterial()
     {
-        
+       foreach (MaterialSwap mat in mathandler)
+        {
+            mat.ChangeMaterial((int)materialSettingSlider.value);
+        }
     }
 
 

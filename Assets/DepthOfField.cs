@@ -32,6 +32,9 @@ public class DepthOfField : MonoBehaviour
         dofMaterial.SetFloat("_FocusRange", focusRange);
         dofMaterial.SetFloat("_BokehRadius", bokehRadius);
 
+        RenderTexture coc = RenderTexture.GetTemporary(source.width, source.height, 0,
+        RenderTextureFormat.RHalf,RenderTextureReadWrite.Linear);
+
         int width = source.width / 2;
         int height = source.height / 2;
         RenderTextureFormat format = source.format;
@@ -40,11 +43,9 @@ public class DepthOfField : MonoBehaviour
         RenderTexture dof1 =
         RenderTexture.GetTemporary(width, height, 0, format);
 
-        RenderTexture coc = RenderTexture.GetTemporary(source.width, source.height, 0,
-        RenderTextureFormat.RHalf,RenderTextureReadWrite.Linear);
 
         dofMaterial.SetTexture("_CocTex", coc);
-        dofMaterial.SetTexture("_DoFTex", dof0);
+        dofMaterial.SetTexture("_DofTex", dof0);
 
         Graphics.Blit(source, coc, dofMaterial,circleOfConfusionPass);
         Graphics.Blit(source, dof0,dofMaterial,preFilterPass);
