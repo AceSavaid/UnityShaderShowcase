@@ -5,10 +5,65 @@ using UnityEngine.UI;
 
 public class DebugMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] bool debugMode = false;
+    [Header("Post Processing", order = 1)]
+    [SerializeField] Toggle ppToggle;
+    [Header("Bloom", order = 2)]
+    [SerializeField] BCBloom bloom;
+
+    [SerializeField] Toggle bloomToggle;
+    [SerializeField][Range(1, 16)] int bloomIterations;
+    [SerializeField][Range(0, 10)] int bloomThreshold;
+    [SerializeField][Range(0, 10)] int bloomIntensity;
+
+    [SerializeField] Slider bloomIterationsSlider;
+    [SerializeField] Slider bloomThresholdSlider;
+    [SerializeField] Slider bloomIntensitySlider;
+
+    [Header("Dof", order = 2)]
+    
+    [SerializeField] BlurCamera blur;
+    [SerializeField] Toggle dofToggle;
+
+    [SerializeField] int blurDepth;
+    [SerializeField] int blurRange;
+
+    [SerializeField] Slider blurDepthSlider;
+    [SerializeField] Slider blureRangeSlider;
+
+    [Header("Pixelization", order = 2)]
+    [SerializeField] Pixelization pixelization;
+    [SerializeField] Toggle pixelToggle;
+
+    [SerializeField] [Range(1,32)]int pixelAmount;
+
+    [SerializeField] Slider pixelAmountSlider;
+
+    [Header("LUT", order = 2)]
+    [SerializeField] CameraLUTRenderer lutCamera;
+    [SerializeField] Toggle LUTToggle;
+    [SerializeField] List<Material> LutMats = new List<Material>(); 
+
+    [Header("Material", order = 1)]
+    [SerializeField] List<MaterialHandler> mathandler = new List<MaterialHandler>();
+
+    [SerializeField] int materialSetting = 1;
+    [SerializeField] Slider materialSettingSlider;
+
+    void Awake()
     {
         
+
+        bloomIterationsSlider.maxValue = 16;
+        bloomIterationsSlider.value = bloom.iterations;
+        bloomThresholdSlider.maxValue = 10;
+        bloomThresholdSlider.value = bloom.threshold;
+        bloomIntensitySlider.maxValue = 10;
+        bloomIntensitySlider.value = bloom.intensity;
+
+        pixelAmountSlider.maxValue = 32;
+        pixelAmountSlider.value = 2;
+
     }
 
     // Update is called once per frame
@@ -16,4 +71,32 @@ public class DebugMenu : MonoBehaviour
     {
         
     }
+
+    public void ToggleBloom()
+    {
+        bloom.enabled = bloomToggle.isOn;
+    }
+
+    public void ToggleDoF()
+    {
+        blur.enabled = dofToggle.isOn;
+    }
+
+    public void TogglePixelization()
+    {
+        pixelization.enabled = pixelToggle.isOn;
+    }
+
+    public void ToggleLUT()
+    {
+        lutCamera.enabled = LUTToggle.isOn;
+    }
+
+
+    public void ToggleMaterial()
+    {
+        
+    }
+
+
 }
