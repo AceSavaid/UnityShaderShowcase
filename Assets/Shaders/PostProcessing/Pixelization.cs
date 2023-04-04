@@ -46,9 +46,4 @@ public class Pixelization : MonoBehaviour
         
         Graphics.Blit(_renderTexture, destination);
     }
-
-    bool DisablePixelation()
-    {
-        return !isOn;
-    }
 }

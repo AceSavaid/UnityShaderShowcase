@@ -21,11 +21,12 @@ void Pixelation (uint3 id : SV_DispatchThreadID)
     if (startPos.x >= _ResultWidth || startPos.y >= _ResultHeight) // If startPos pixel is bigger than the result pixel, do nothing
         return;
 
-    // Get the smallest minimum
+    // Get block size from _BlockSize and ResultSize - StartPos, if block size is smaller then use block size integer.
     const int blockWidth = min(_BlockSize, _ResultWidth - startPos.x);
     const int blockHeight = min(_BlockSize, _ResultHeight - startPos.y);
     const int numPixels = blockWidth * blockHeight; // Get total number of pixels for averaging out the colour, basically lerp from nearest neighbour
-    
+
+    // READ COLOUR
     float4 colour = float4(0, 0, 0, 0);
     for (int i = 0; i < blockWidth; i++)
     {
@@ -35,8 +36,9 @@ void Pixelation (uint3 id : SV_DispatchThreadID)
             colour += Result[pixelPos];
         }
     }
-    colour /= numPixels;
+    colour /= numPixels; // Get nearest-neighbor by dividing colour from number of pixels, the average colour.
 
+    // APPLY COLORS
     for (int i = 0; i < blockWidth; i++)
     {
         for (int j = 0; j < blockHeight; j++)
