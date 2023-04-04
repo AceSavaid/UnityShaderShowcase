@@ -1,37 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//[ExecuteInEditMode, ImageEffectAllowedInSceneView]
 public class Pixelization : MonoBehaviour
 {
-    [SerializeField][Range(1, 16)] private int iterations = 1;
+    [SerializeField] private ComputeShader pixelizationCompute; 
+    [Range(2, 40)] public int BlockSize = 3;
+
+    int _screenWidth;
+    int _screenHeight;
+    public RenderTexture _renderTexture;  
+
+    void Start()
+    {
+        CreateRenderTexture();
+    }
+
+    void CreateRenderTexture()
+    {
+        _screenWidth = Screen.width;
+        _screenHeight = Screen.height;
+        
+        _renderTexture = new RenderTexture(_screenWidth, _screenHeight, 24);
+        _renderTexture.filterMode = FilterMode.Point;
+        _renderTexture.enableRandomWrite = true;
+        _renderTexture.Create();
+    }
+
+    void Update()
+    {
+        if (Screen.width != _screenWidth || Screen.height != _screenHeight)
+            CreateRenderTexture();
+    }
+
     void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        int width = source.width / 2;
-		int height = source.height / 2;
-		RenderTextureFormat format = source.format;
+        Graphics.Blit(source, _renderTexture);
 
-        RenderTexture currentDestination =
-            RenderTexture.GetTemporary(width, height, 0, format);
-
-        Graphics.Blit(source, currentDestination);
-        RenderTexture currentSource = currentDestination;
-        for (int i = 1; i < iterations; i++)
-        {
-            width /= 2;
-            height /= 2;
-            if (height < 2)
-            {
-                break;
-            }
-            currentDestination =
-                RenderTexture.GetTemporary(width, height, 0, format);
-            Graphics.Blit(currentSource, currentDestination);
-            RenderTexture.ReleaseTemporary(currentSource);
-            currentSource = currentDestination;
-        }
-        Graphics.Blit(currentSource, destination);
-        RenderTexture.ReleaseTemporary(currentSource);
+        int mainKernal = pixelizationCompute.FindKernel("Pixelation");
+        pixelizationCompute.SetInt("_BlockSize", BlockSize);
+        pixelizationCompute.SetInt("_ResultWidth", _renderTexture.width);
+        pixelizationCompute.SetInt("_ResultHeight", _renderTexture.height);
+        pixelizationCompute.SetTexture(mainKernal, "Result", _renderTexture);
+        
+        pixelizationCompute.GetKernelThreadGroupSizes(mainKernal, out uint xGroupSize, out uint yGroupSize, out _);
+        pixelizationCompute.Dispatch(mainKernal,
+            Mathf.CeilToInt(_renderTexture.width / (float)BlockSize / xGroupSize),
+            Mathf.CeilToInt(_renderTexture.height / (float)BlockSize / yGroupSize),
+            1);
+        
+        Graphics.Blit(_renderTexture, destination);
 
     }
 }

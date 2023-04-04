@@ -1,0 +1,48 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel Pixelation
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float4> Result;
+
+int _BlockSize;
+int _ResultWidth;
+int _ResultHeight;
+
+
+[numthreads(8,8,1)]
+void Pixelation (uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _ResultWidth || id.y >= _ResultHeight) // If the pixel size is bigger than result then do nothing
+        return;
+
+    const float2 startPos = id.xy * _BlockSize; // Get pixel position from multiplying current threadID
+
+    if (startPos.x >= _ResultWidth || startPos.y >= _ResultHeight) // If startPos pixel is bigger than the result pixel, do nothing
+        return;
+
+    // Get the smallest minimum
+    const int blockWidth = min(_BlockSize, _ResultWidth - startPos.x);
+    const int blockHeight = min(_BlockSize, _ResultHeight - startPos.y);
+    const int numPixels = blockWidth * blockHeight; // Get total number of pixels for averaging out the colour, basically lerp from nearest neighbour
+    
+    float4 colour = float4(0, 0, 0, 0);
+    for (int i = 0; i < blockWidth; i++)
+    {
+        for (int j = 0; j < blockHeight; j++)
+        {
+            const uint2 pixelPos = uint2(startPos.x + i, startPos.y + j);
+            colour += Result[pixelPos];
+        }
+    }
+    colour /= numPixels;
+
+    for (int i = 0; i < blockWidth; i++)
+    {
+        for (int j = 0; j < blockHeight; j++)
+        {
+            const uint2 pixelPos = uint2(startPos.x + i, startPos.y + j);
+            Result[pixelPos] = colour;
+        }
+    }
+}
