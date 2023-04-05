@@ -8,19 +8,38 @@ Slides: https://docs.google.com/presentation/d/10Lnsc44KVlqOOGGfMC5SAeE4YbPRhudr
 Youtube Video:  
 
 ### Itegrations
+![image](https://user-images.githubusercontent.com/91763901/229975701-0d36eb0a-7c3c-4494-8eb5-cdb9f9571ce5.png)
+![image](https://user-images.githubusercontent.com/91763901/229975711-81a7eb9b-4b03-4f8e-bc15-9e3f6492ee2d.png)
+![image](https://user-images.githubusercontent.com/91763901/229975721-bba73904-9bcd-4c74-9ab6-cebfd16f30be.png)
 
 
 ### Texturing
 
 
 ### Colour Correction
+![image](https://user-images.githubusercontent.com/91763901/229975955-e6a0d78d-08d1-4b87-a71f-31fb81bccd6d.png)
+![image](https://user-images.githubusercontent.com/91763901/229975967-0707a21c-3038-4205-9509-baf613b68d82.png)
+![image](https://user-images.githubusercontent.com/91763901/229975976-72be0509-c6d3-4cc3-93f1-7e7a7f88b1d5.png)
+
 
 ### Visual Effects
+![image](https://user-images.githubusercontent.com/91763901/229976168-2046a459-6a78-43eb-9cdb-d4ee8e06efad.png)
+![image](https://user-images.githubusercontent.com/91763901/229976231-1eb5e3bc-ffe0-4305-a66f-f59a8b7ebbdc.png)
+
+![image](https://user-images.githubusercontent.com/91763901/229976310-065144ca-644c-4105-86ad-47e80128f559.png)
+![image](https://user-images.githubusercontent.com/91763901/229976324-d21a28bc-e521-403d-be9a-33e1018c61d0.png)
 
 ### Additional Effects
 
 
+### Post processing
+![image](https://user-images.githubusercontent.com/91763901/229976471-8bc79d18-6858-496a-b567-c781c1c9f6ff.png)
+![image](https://user-images.githubusercontent.com/91763901/229976476-a1ca00ce-8815-45fc-8410-70a3ae72a0a7.png)
 
+![image](https://user-images.githubusercontent.com/91763901/229976592-2d4d5be2-f5e6-4336-a6b2-70f86bea775a.png)
+![image](https://user-images.githubusercontent.com/91763901/229976603-801c995e-2c52-4e62-8606-533a20270d91.png)
+
+![image](https://user-images.githubusercontent.com/91763901/229976637-9b372e8d-e39b-46ab-baf7-9b1d1b4a0e56.png)
 
 
 # **Group Assignmemt**   
