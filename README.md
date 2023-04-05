@@ -21,11 +21,12 @@ Youtube Video:
 
 
 
+
+
+# **Group Assignmemt**   
 ## Supporting Documents
 Slides:  https://docs.google.com/presentation/d/1qHUVmM7UDbQPsCz0wPt5AmObGQ26cu6l9dbFuFq-ypY/edit?usp=sharing
 YoutubeLink: https://youtu.be/R_RzUvM6myo  
-
-# **Group Assignmemt**   
 ## Contributions  
 Bradley  
 - Bloom Shader  
