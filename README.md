@@ -5,34 +5,34 @@ This project is a level based, 3D third person platformer.  In this game the ply
 Credits: Line shadow texture was from tutorrial.  Bases of scripts were from lectures.  Probuilder and Cinemachine were used. 
 All other textures were made by us.  
 **Note: Can toggle debug mode through pausing the game (pressing esc)  
-Slides: https://docs.google.com/presentation/d/10Lnsc44KVlqOOGGfMC5SAeE4YbPRhudr1aMxsp9T6-0/edit?usp=sharing  
-Youtube Video:  https://youtu.be/zTegaFG-DZ8
+Slides: https://docs.google.com/presentation/d/10Lnsc44KVlqOOGGfMC5SAeE4YbPRhudr1aMxsp9T6-0/edit?usp=sharing   
+Youtube Video:  https://youtu.be/zTegaFG-DZ8  
 
-Roles 
-Alannis - Itegrations, Toon Shader, Water Shader, Holograms, Shadow Shader, Upgraded outlines, Creating Debug mode
+Roles  
+Alannis - Itegrations, Toon Shader, Water Shader, Holograms, Shadow Shader, Upgraded outlines, Creating Debug mode  
 Bradley - Level Design and Implementaion, Depth of Field and Bloom shader, LUT Shader, Selection and Placement of Materials   
-Carlos - Pixelization , adding music and sound effects
+Carlos - Pixelization , adding music and sound effects  
 
 ### Itegrations
 - Combined shaders so that more effects can be done as well as more variations to the possibilities of materials.  It is also for optimization, for example having the toon shader and the outline shader be one shader, as well as having variations with displacement maps, normal maps and more for different effects.   
 - Adjusted the bloom and blur to fit the aesthetic of the game more.  
 -  Added systems to make things togglable in debug mode.  
 
-![image](https://user-images.githubusercontent.com/91763901/229975701-0d36eb0a-7c3c-4494-8eb5-cdb9f9571ce5.png)
-![image](https://user-images.githubusercontent.com/91763901/229975711-81a7eb9b-4b03-4f8e-bc15-9e3f6492ee2d.png)
-![image](https://user-images.githubusercontent.com/91763901/229975721-bba73904-9bcd-4c74-9ab6-cebfd16f30be.png)
+![image](https://user-images.githubusercontent.com/91763901/229975701-0d36eb0a-7c3c-4494-8eb5-cdb9f9571ce5.png)  
+![image](https://user-images.githubusercontent.com/91763901/229975711-81a7eb9b-4b03-4f8e-bc15-9e3f6492ee2d.png)  
+![image](https://user-images.githubusercontent.com/91763901/229975721-bba73904-9bcd-4c74-9ab6-cebfd16f30be.png)  
 
 
 
 ### Texturing
-- Use of material and uv sampling
-- use of different textures such as toon ramps, normal maps and displacement maps
-![ABrick](https://user-images.githubusercontent.com/69608587/230137501-9824f10b-b7dc-4ba6-82ce-42ec225c72b3.png)
-![BrickNormalMap](https://user-images.githubusercontent.com/69608587/230137511-d248e477-87e8-4332-b73b-90c22328efda.png)
+- Use of material and uv sampling  
+- use of different textures such as toon ramps, normal maps and displacement maps  
+![ABrick](https://user-images.githubusercontent.com/69608587/230137501-9824f10b-b7dc-4ba6-82ce-42ec225c72b3.png)  
+![BrickNormalMap](https://user-images.githubusercontent.com/69608587/230137511-d248e477-87e8-4332-b73b-90c22328efda.png)  
 
 ### Colour Correction
 - Uses a script on the camera to render LUTs stored in materials onto the camera, the camera refereces the currently inplace lut to know what colour style it should use in visualizing the scene.  
-![image](https://user-images.githubusercontent.com/69608587/230124505-fbc7e8c7-32bc-4bdc-8196-bb6b1f2d68f3.png)
+![image](https://user-images.githubusercontent.com/69608587/230124505-fbc7e8c7-32bc-4bdc-8196-bb6b1f2d68f3.png)  
 
 - Added areas that change what LUT the camera is rendering, this is to help with showing off area changes and adding to the environmental aestetic of the game.  
 ![image](https://user-images.githubusercontent.com/69608587/230124769-5ecab09d-aca0-42f4-a057-9fc942b34066.png)
