@@ -1,5 +1,5 @@
-# ComputerGraphicsProject
-This project is a level based, 3D third person platformer.  In this game the plyaer avoids obstacles, shoot enemies and platform in their attempt to reach the end of each stage.  
+# Computer Graphics Unity Shader Showcase
+This project is a level-based, 3D third-person platformer base used to facilitate showcasing the shaders created.  In this game the plyaer avoids obstacles, shoot enemies and platform in their attempt to reach the end of each stage.  
 
 ## Final Project:  
 Credits: Line shadow texture was from tutorrial.  Bases of scripts were from lectures.  Probuilder and Cinemachine were used. 
